@@ -1,0 +1,42 @@
+.main {
+    width: 70%;
+    margin: auto;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    
+    &Currency {
+        display: flex;
+        border: 1px solid black;
+        border-radius: 5px;
+        justify-content: space-around;
+        min-width: 50%;
+        margin-bottom: 35px;
+
+        &Item {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+
+            &:hover {
+                background-color: rgb(51, 172, 51);
+                color: white;
+            } 
+        }
+    }
+
+    &Input {
+        width: 50%;
+        height: 50px;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid gray;
+        text-align: center;
+        align-self: center;
+        font-size: 22px;
+
+        &:focus {
+            outline-style: none;
+        }
+    }
+}
