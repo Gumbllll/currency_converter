@@ -12,16 +12,25 @@
         justify-content: space-around;
         min-width: 50%;
         margin-bottom: 35px;
-
+        cursor: pointer;
+        
         &Item {
             width: 100%;
             padding: 10px;
             text-align: center;
 
             &:hover {
-                background-color: rgb(51, 172, 51);
+                background-color: rgba(33, 216, 33, 0.642);
                 color: white;
             } 
+
+            &Active {
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+                background-color: rgba(14, 144, 14, 0.642);
+                color: white;
+            }
         }
     }
 
@@ -40,3 +49,4 @@
         }
     }
 }
+
