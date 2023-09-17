@@ -15,7 +15,8 @@ function App() {
   const [ toValue, setToValue ] = useState(0); 
   const [rates, setRates] = useState<IRates>({});
 
-  console.log(fromValue);
+  console.log('FromValue render', fromValue);
+  console.log('ToValue render', toValue);
 
   useEffect(() => {
     (async function() {
@@ -24,27 +25,33 @@ function App() {
     })();
   }, []);
 
-  console.log(rates[fromCurrency]);
-
   const onChangeFromRates = (value: number) => {
     const price = (value / rates[fromCurrency]) * rates[toCurrency];
+    const totalPrice = price.toFixed(6)
     setFromValue(value);
-    setToValue(+price.toFixed(6)); 
+    setToValue(+totalPrice); 
+    console.log('1', totalPrice)
   }
 
   const onChangeToRates = (value: number) => {
     const price = (rates[fromCurrency] / rates[toCurrency] * value);
-    setFromValue(+price.toFixed(6));
+    const totalPrice = price.toFixed(6);
     setToValue(value);
+    setFromValue(+totalPrice);
+    console.log('2',totalPrice);
   }
 
-  // useEffect(() => {
-  //   onChangeFromRates(fromValue);
-  // }, [toCurrency, toValue]);
+  useEffect(() => {
+    if(fromValue <= 0) {
+      return;
+    } else (onChangeFromRates(fromValue)) 
+  }, [toCurrency]);
 
-  // useEffect(() => {
-  //   onChangeToRates(toValue);
-  // }, [fromCurrency, fromValue])
+  useEffect(() => {
+    if(toValue <= 0) {
+      return;
+    } else (onChangeToRates(toValue))
+  }, [fromCurrency]);
 
   return (
     <div className={styles.App}>
