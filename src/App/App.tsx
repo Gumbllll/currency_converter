@@ -15,9 +15,6 @@ function App() {
   const [ toValue, setToValue ] = useState(0); 
   const [rates, setRates] = useState<IRates>({});
 
-  console.log('FromValue render', fromValue);
-  console.log('ToValue render', toValue);
-
   useEffect(() => {
     (async function() {
       const response = await axios.get('http://localhost:3001/rates');
@@ -30,7 +27,6 @@ function App() {
     const totalPrice = price.toFixed(6)
     setFromValue(value);
     setToValue(+totalPrice); 
-    console.log('1', totalPrice)
   }
 
   const onChangeToRates = (value: number) => {
@@ -38,19 +34,18 @@ function App() {
     const totalPrice = price.toFixed(6);
     setToValue(value);
     setFromValue(+totalPrice);
-    console.log('2',totalPrice);
   }
 
   useEffect(() => {
     if(fromValue <= 0) {
       return;
-    } else (onChangeFromRates(fromValue)) 
+    } else onChangeFromRates(fromValue)
   }, [toCurrency]);
 
   useEffect(() => {
     if(toValue <= 0) {
       return;
-    } else (onChangeToRates(toValue))
+    } else onChangeToRates(toValue)
   }, [fromCurrency]);
 
   return (
