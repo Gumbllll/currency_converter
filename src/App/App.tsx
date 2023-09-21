@@ -39,13 +39,13 @@ function App() {
   useEffect(() => {
     if(fromValue <= 0) {
       return;
-    } else onChangeFromRates(fromValue)
+    } else (onChangeFromRates(fromValue)) 
   }, [toCurrency]);
 
   useEffect(() => {
     if(toValue <= 0) {
       return;
-    } else onChangeToRates(toValue)
+    } else (onChangeToRates(toValue))
   }, [fromCurrency]);
 
   return (

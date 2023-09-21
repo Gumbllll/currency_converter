@@ -17,7 +17,7 @@ const Block: React.FC<ICurrency> = ({ currency, setCurrency, valueR, setValue })
             setValue(total);
         }
     }
-
+   
     return (
         <main className={styles.main}>
             <div className={styles.mainCurrency}>
@@ -27,5 +27,7 @@ const Block: React.FC<ICurrency> = ({ currency, setCurrency, valueR, setValue })
         </main>
     )
 }
+
+
 
 export default Block;
